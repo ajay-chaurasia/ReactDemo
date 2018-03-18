@@ -1,0 +1,42 @@
+.sideMenuDiv {
+    z-index: 9999;
+    background-color: white;
+    position: fixed;
+    top: 0px;
+    width: 310px;
+    height: 100%;
+    display: none;
+}
+
+.sideMenuDiv {
+    left: -270px;
+    box-shadow: 15px 0 25px -2px #dedede;
+}
+
+.slideOver {
+    -webkit-transition: -webkit-transform 0.5s ease-in-out;
+    -webkit-transform: translate(270px,0px);
+    -ms-transform: translate(270px,0px);
+    transform: translate(270px,0px);
+}
+
+#id_skStudio_Wrapper input, #id_skStudio_Wrapper select, div, img {
+    outline: 0;
+}
+
+.slideBack {
+    -webkit-transition: -webkit-transform 0.5s ease-in-out;
+    -webkit-transform: translate(0px,0px);
+    -ms-transform: translate(0px,0px);
+    transform: translate(0px,0px);
+}
+
+div {
+    display: block;
+}
+
+.logoSpan {
+    height: 100%;
+    display: inline-block;
+    text-align: center;
+}
