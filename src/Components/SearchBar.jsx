@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-class MenuItem extends React.Component {
+class SearchBar extends React.Component {
    render() {
       return (
          <div>
@@ -10,4 +10,4 @@ class MenuItem extends React.Component {
       );
    }
 }
-export default MenuItem;
+export default SearchBar;
