@@ -1,6 +1,7 @@
 import React from 'react';
-import HamburgerMenu from './HamburgerMenu.jsx'
+//import HamburgerMenu from './HamburgerMenu.jsx'
 import '../style.css'
+import LoginPopup from './LoginPopup';
 var div_style= {display:'flex'};
 
 class HomePage extends React.Component {
@@ -8,11 +9,21 @@ class HomePage extends React.Component {
 constructor(){
     super();
     this.state = {
-      projects: [],
-      todos:[]
+      username: '',
+      password: ''
     }
   }
 
+  authorizeLogin = (enteredUsername, enteredPassword) =>{
+    if(enteredUsername === enteredPassword){
+
+      this.setState({
+        username: enteredUsername,
+        password: enteredPassword
+      });
+      console.log("Login Successful!");
+    }
+  }
 
 //AJAX Call to fetch data
 /*
@@ -37,15 +48,13 @@ constructor(){
 render() {
 
       return (
-         <div style={div_style}>
-
-         	<HamburgerMenu /> 
-           
-           <div style={{ margin:'0 auto'}}>
-           
-           <img  style={{ margin:'0 auto'}} className='logoSpan' src={require("../Images/idhp_icon.png")} alt='IDHP Icon'/>
-           
-           </div>
+        <div>
+         <div style={div_style}>                    
+            <img  style={{ margin:'0 auto'}} className='logoSpan' src={require("../Images/idhp_icon.png")} alt='IDHP Icon'/>
+         </div>
+         <div style={{ margin:'0 auto'}} className='logoSpan'>
+         <LoginPopup username={this.state.username} password={this.state.password} onlogin={this.authorizeLogin}/>
+         </div>
          </div>
       );
    }

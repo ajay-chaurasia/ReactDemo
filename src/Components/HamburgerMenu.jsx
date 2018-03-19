@@ -7,7 +7,7 @@ class HamburgerMenu extends React.Component {
       return (
          <div>
          	<h3>Main Menu</h3>
-         	<MenuItem text='Pehla Item'></MenuItem>
+         	<MenuItem text={this.props.username}></MenuItem>
          </div>
       );
    }
