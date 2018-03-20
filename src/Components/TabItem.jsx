@@ -4,7 +4,7 @@ class TabItem extends React.Component {
     render(){
         return(
             <div>
-                {this.props.text.title} {this.props.onclick} &nbsp;
+                <button>{this.props.text.title} {this.props.onclick(this.props.text.title)} </button> &nbsp;
             </div>
         );
     }

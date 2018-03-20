@@ -5,7 +5,7 @@ class ChangeLoc extends React.Component {
    render() {
       return (
          <div>
-         	<li>{this.props.text}</li>
+         	<button>Change Loc</button>
          </div>
       );
    }

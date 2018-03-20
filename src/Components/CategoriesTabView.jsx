@@ -15,16 +15,63 @@ class CategoriesTabView extends React.Component {
   
         this.setState({tabList: [
           {
-            title: 'Business Website',
-            category: 'Web Deisgn'
+            title: 'Doctors & Speciality',
+            data: [
+                {
+                    name:'Dr. Asthana',
+                    speciality: 'Ortho'
+                },
+                {
+                    name:'Dr. Suresh',
+                    speciality: 'Eye'
+                },
+                {
+                    name:'Dr. Mukesh',
+                    speciality: 'Dentist'
+                },
+                {
+                    name:'Dr. Ravi',
+                    speciality: 'OPD'
+                }
+            ]
           },
           {
-            title: 'Social App',
-            category: 'Mobile Development'
+            title: 'Urgent Care',
+            data: []
           },
           {
-            title: 'Ecommerce Shopping Cart',
-            category: 'Web Development'
+            title: 'Hospitals & Fascilities',
+            data: [
+                {
+                    name: 'Teresa Care',
+                    address: 'Colorado'
+                },
+                {
+                    name: 'Fortis Healthcare',
+                    address: 'Texas'
+                },
+                {
+                    name: 'Narayana Eye Hospital',
+                    address: 'Benagaluru'
+                }
+            ]
+          },
+          {
+              title: 'Body Parts',
+              data: [
+                        {
+                            name: 'Head'
+                        }, 
+                        {
+                            name: 'Brain'
+                        }, 
+                        {
+                            name: 'Stomach'
+                        }, 
+                        {
+                            name: 'Eye'
+                        }
+              ]
           }
         ]});
       }
@@ -34,7 +81,16 @@ class CategoriesTabView extends React.Component {
       }
       
       componentDidMount(){
-        console.log("HomePage: "+this.state.tabList);
+        console.log("HomePage: "+this.state.tabList); 
+      }
+
+      handleClick(title){
+          //TODO
+            switch(title){
+                case '': 
+                        break;
+
+            }
       }
 
    render() {

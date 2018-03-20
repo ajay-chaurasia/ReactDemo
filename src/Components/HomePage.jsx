@@ -2,7 +2,8 @@ import React from 'react';
 import CategoriesTabView from './CategoriesTabView.jsx'
 import '../style.css'
 import LoginPopup from './LoginPopup';
-var div_style= {display:'flex'};
+import ChangeLoc from './ChangeLoc.jsx';
+import SearchBar from './SearchBar.jsx';
 
 class HomePage extends React.Component {
 
@@ -52,14 +53,20 @@ render() {
       return (
         
         <div>
-         <div style={div_style}>                    
+         <div style={{display:'flex'}}>                    
             <img  style={{ margin:'0 auto'}} className='logoSpan' src={require("../Images/idhp_icon.png")} alt='IDHP Icon'/>
          </div>
 
          <div style={{ margin:'0 auto'}} className='logoSpan'>   
             {!this.state.validSession ? <LoginPopup username={this.state.username} password={this.state.password} onlogin={this.authorizeLogin}/> : null }
 
-            {this.state.validSession ? <CategoriesTabView /> : null }
+            {this.state.validSession ? 
+            <div>
+              <div style={{display:'flex'}}>
+                <ChangeLoc/>&nbsp;<SearchBar/>
+              </div> <br/>
+              <CategoriesTabView />
+            </div> : null }
          </div>
         </div>
       );
