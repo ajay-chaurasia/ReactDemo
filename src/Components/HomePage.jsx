@@ -24,7 +24,6 @@ constructor(){
         validSession: true,
         tabList: []
       });
-      console.log("Login Successful!");
     }
   }
 
@@ -48,40 +47,21 @@ constructor(){
 
 */
 
-getTabList(){
-  this.setState({tabList: [
-    {
-      title: 'Business Website',
-      category: 'Web Deisgn'
-    },
-    {
-      title: 'Social App',
-      category: 'Mobile Development'
-    },
-    {
-      title: 'Ecommerce Shopping Cart',
-      category: 'Web Development'
-    }
-  ]});
-}
-
-componentWillMount(){
-  this.getTabList();
-}
-
 render() {
 
       return (
+        
         <div>
          <div style={div_style}>                    
             <img  style={{ margin:'0 auto'}} className='logoSpan' src={require("../Images/idhp_icon.png")} alt='IDHP Icon'/>
          </div>
-         <div style={{ margin:'0 auto'}} className='logoSpan'>
-         {!this.state.validSession ? <LoginPopup username={this.state.username} password={this.state.password} onlogin={this.authorizeLogin}/> : null }
 
-         {this.state.validSession ? <CategoriesTabView tabs={this.state.tabList} /> : null }
+         <div style={{ margin:'0 auto'}} className='logoSpan'>   
+            {!this.state.validSession ? <LoginPopup username={this.state.username} password={this.state.password} onlogin={this.authorizeLogin}/> : null }
+
+            {this.state.validSession ? <CategoriesTabView /> : null }
          </div>
-         </div>
+        </div>
       );
    }
 }

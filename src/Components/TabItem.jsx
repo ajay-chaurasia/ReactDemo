@@ -4,9 +4,7 @@ class TabItem extends React.Component {
     render(){
         return(
             <div>
-                
-                <li>{this.props.tablisting.title}</li>
-                
+                {this.props.text.title} {this.props.onclick} &nbsp;
             </div>
         );
     }

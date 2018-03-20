@@ -6,27 +6,54 @@ class CategoriesTabView extends React.Component {
     constructor(){
         super();
         this.state = {
-          username: ''
+          username: '',
+          tabList: []
         }
       }
 
+      getTabList(){
+  
+        this.setState({tabList: [
+          {
+            title: 'Business Website',
+            category: 'Web Deisgn'
+          },
+          {
+            title: 'Social App',
+            category: 'Mobile Development'
+          },
+          {
+            title: 'Ecommerce Shopping Cart',
+            category: 'Web Development'
+          }
+        ]});
+      }
+      
+      componentWillMount(){
+        this.getTabList();
+      }
+      
+      componentDidMount(){
+        console.log("HomePage: "+this.state.tabList);
+      }
 
    render() {
-       let tabList;
-        if(this.props.tabs){
-
-            //tabList = this.props.tabs;
-            tabList = this.props.tabs.map(tablisting => {
+       let localTabList;
+        if(this.state.tabList){
+            localTabList = this.state.tabList.map(tablisting => {
                 return (
-                <TabItem text={tablisting} />
+                    <TabItem text={tablisting} onclick={this.handleClick} />
                 );
             });
+        } else {
+            console.log("Tablist3 is: "+this.state.tabList);
+            localTabList = null;
         }
 
         return(
-            <div>
-              {tabList}  
-              </div>
+            <div style={{ display:'flex'}}>
+                {localTabList}  
+            </div>
         );
     }
 }
