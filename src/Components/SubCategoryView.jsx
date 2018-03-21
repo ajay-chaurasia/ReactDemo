@@ -10,26 +10,6 @@ export default class SubCategoryView extends React.Component {
     }
 
    render() {
-    //let tabItemObj;
-    
-    /*if(this.props.tabObject){
-        tabItemObj= this.props.tabObject.data.map(tablisting => {    
-            return (
-                <SubCategoryResultView tabObj={tablisting} style={{align:'center'}}/>
-            );
-        })
- }
-    switch(this.props.tabObject.title){
-        case 'Doctors & Speciality': 
-              //tabObject.name
-              
-             break;
-      default: 
-              break;
-    }
-
-    {this.props.tabObject.data.name? this.props.tabObject.data.name: null}
-    */
    
     let localDataList;
    if(this.props.tabObject){

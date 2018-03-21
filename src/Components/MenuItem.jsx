@@ -5,7 +5,7 @@ class MenuItem extends React.Component {
    render() {
       return (
          <div>
-         	<li>{this.props.text}</li>
+         	<button onClick={()=> this.props.route(this.props.text)}>{this.props.text}</button>
          </div>
       );
    }

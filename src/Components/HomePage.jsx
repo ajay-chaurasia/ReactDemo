@@ -4,6 +4,7 @@ import '../style.css'
 import LoginPopup from './LoginPopup';
 import ChangeLoc from './ChangeLoc.jsx';
 import SearchBar from './SearchBar.jsx';
+import HamburgerMenu from './HamburgerMenu';
 
 class HomePage extends React.Component {
 
@@ -12,7 +13,9 @@ constructor(){
     this.state = {
       username: '',
       password: '',
-      validSession: false
+      validSession: false,
+      expandHamMenu: false,
+      displayMenuButton: true
     }
   }
 
@@ -48,12 +51,36 @@ constructor(){
 
 */
 
+expandHamburgerMenu = () => {
+  console.log("Opening Menu");
+    this.setState({
+      expandHamMenu: true,
+      displayMenuButton: false
+    });
+}
+
+collapseHamburgerMenu = () => {
+  console.log("Closing Menu");
+    this.setState({
+      expandHamMenu: false,
+      displayMenuButton: true
+    });
+}
+
 render() {
 
       return (
         
         <div>
-         <div style={{display:'flex'}}>                    
+
+         {this.state.expandHamMenu? <HamburgerMenu className='' closeAction={this.collapseHamburgerMenu} /> : null}
+
+         <div style={{display:'flex'}}>
+            {this.state.displayMenuButton ? 
+              <button onClick={this.expandHamburgerMenu}>
+                  HamburgerMenu
+              </button>
+            : null }                  
             <img  style={{ margin:'0 auto'}} className='logoSpan' src={require("../Images/idhp_icon.png")} alt='IDHP Icon'/>
          </div>
 
