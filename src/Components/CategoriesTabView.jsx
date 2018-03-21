@@ -1,5 +1,6 @@
 import React from 'react';
 import TabItem from './TabItem.jsx';
+import SubCategoryView from './SubCategoryView.jsx';
 
 class CategoriesTabView extends React.Component {
 
@@ -7,7 +8,9 @@ class CategoriesTabView extends React.Component {
         super();
         this.state = {
           username: '',
-          tabList: []
+          tabList: [],
+          tabObjectData: [],
+          displaySubCategoryView: false
         }
       }
 
@@ -79,18 +82,12 @@ class CategoriesTabView extends React.Component {
       componentWillMount(){
         this.getTabList();
       }
-      
-      componentDidMount(){
-        console.log("HomePage: "+this.state.tabList); 
-      }
 
-      handleClick(title){
-          //TODO
-            switch(title){
-                case '': 
-                        break;
-
-            }
+      handleTabClick = (tabObj) => {
+            this.setState({
+                tabObjectData: tabObj,
+                displaySubCategoryView: true
+            });
       }
 
    render() {
@@ -98,7 +95,7 @@ class CategoriesTabView extends React.Component {
         if(this.state.tabList){
             localTabList = this.state.tabList.map(tablisting => {
                 return (
-                    <TabItem text={tablisting} onclick={this.handleClick} />
+                    <TabItem tabObj={tablisting} ontabclick={this.handleTabClick} />
                 );
             });
         } else {
@@ -107,8 +104,14 @@ class CategoriesTabView extends React.Component {
         }
 
         return(
-            <div style={{ display:'flex'}}>
-                {localTabList}  
+            <div>
+                <div style={{ display:'flex'}}>
+                    {localTabList}  
+                </div>
+                <br/>
+                <div>
+                    {this.state.displaySubCategoryView ? <SubCategoryView tabObject={this.state.tabObjectData} /> : null}
+                </div>
             </div>
         );
     }

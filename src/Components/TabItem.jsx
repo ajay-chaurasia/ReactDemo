@@ -1,10 +1,19 @@
 import React from 'react';
 
 class TabItem extends React.Component {
+
+    constructor(){
+        super();
+        this.state = {
+            displaySubCategory: false,
+            tabObject: null
+        }
+    }
+
     render(){
         return(
             <div>
-                <button>{this.props.text.title} {this.props.onclick(this.props.text.title)} </button> &nbsp;
+                <button onClick = {()=> this.props.ontabclick(this.props.tabObj.data)}> {this.props.tabObj.title} </button> &nbsp;
             </div>
         );
     }
