@@ -3,9 +3,19 @@ import MenuItem from './MenuItem.jsx'
 import '../style.css'
 class HamburgerMenu extends React.Component {
 
-    route = (pagetitle) =>{
+   
+    constructor(props){
+        super(props);
+        this.state = {
+          closeFunc: props.closeAction
+        }
+      }
+
+    routeHandler = (pagetitle) => {
         console.log(pagetitle);
+        this.state.closeFunc();
     }
+
    render() {
       return (
          <div >
@@ -13,12 +23,11 @@ class HamburgerMenu extends React.Component {
                 <h3>Main Menu</h3>
                 <button onClick={() => this.props.closeAction()}>Close</button>
             </div>
-             <MenuItem text="Home" route={() => this.route}></MenuItem>
-             <MenuItem text="Doctors & Speciality"></MenuItem>
-             <MenuItem text="Urgent Care"></MenuItem>
-             <MenuItem text="Hospitals & Fascilities"></MenuItem>
-             <MenuItem text="Health Conditions"></MenuItem>
-             <MenuItem text="Body Parts"></MenuItem>
+             <MenuItem text="Home" routeHandler={this.routeHandler}></MenuItem>
+             <MenuItem text="Doctors & Speciality" routeHandler={this.routeHandler}></MenuItem>
+             <MenuItem text="Urgent Care" routeHandler={this.routeHandler}></MenuItem>
+             <MenuItem text="Hospitals & Fascilities" routeHandler={this.routeHandler}></MenuItem>
+             <MenuItem text="Body Parts" routeHandler={this.routeHandler}></MenuItem>
          </div>
       );
    }

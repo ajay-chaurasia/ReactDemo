@@ -5,6 +5,7 @@ import LoginPopup from './LoginPopup';
 import ChangeLoc from './ChangeLoc.jsx';
 import SearchBar from './SearchBar.jsx';
 import HamburgerMenu from './HamburgerMenu';
+import Popup from 'react-popup';
 
 class HomePage extends React.Component {
 
@@ -67,6 +68,20 @@ collapseHamburgerMenu = () => {
     });
 }
 
+showPopup(){
+  console.log("Hello");
+  
+  /*var mySpecialPopup = Popup.register({
+    title: 'I am special',
+    content: 'Since I am special you might need me again later. Save me!',
+    buttons: {
+        left: ['cancel'],
+        right: ['ok']
+    }
+  });
+  Popup.queue(mySpecialPopup)*/
+}
+
 render() {
 
       return (
@@ -90,11 +105,12 @@ render() {
             {this.state.validSession ? 
             <div>
               <div style={{display:'flex'}}>
-                <ChangeLoc/>&nbsp;<SearchBar/>
+                <ChangeLoc onclick = {this.showPopup}/>&nbsp;<SearchBar/>
               </div> <br/>
               <CategoriesTabView />
             </div> : null }
          </div>
+         <Popup/>
         </div>
       );
    }

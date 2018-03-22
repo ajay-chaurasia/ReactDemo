@@ -7,6 +7,8 @@
     "rc-menu": "^6.2.6",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-modal": "^3.3.2",
+    "react-popup": "^0.9.2",
     "react-scripts": "1.1.1"
   },
   "scripts": {

@@ -56,7 +56,7 @@ class CategoriesTabView extends React.Component {
                 },
                 {
                     name: 'Narayana Eye Hospital',
-                    address: 'Benagaluru'
+                    address: 'Bengaluru'
                 }
             ]
           },
@@ -64,16 +64,20 @@ class CategoriesTabView extends React.Component {
               title: 'Body Parts',
               data: [
                         {
-                            name: 'Head'
+                            name: 'Head',
+                            part: 'Upper Body'
                         }, 
                         {
-                            name: 'Brain'
+                            name: 'Brain',
+                            part: 'Upper Body'
                         }, 
                         {
-                            name: 'Stomach'
+                            name: 'Stomach',
+                            part: 'Middle'
                         }, 
                         {
-                            name: 'Eye'
+                            name: 'Eye',
+                            part: 'Upper Body'
                         }
               ]
           }
