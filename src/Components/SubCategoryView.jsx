@@ -24,7 +24,6 @@ export default class SubCategoryView extends React.Component {
     });
 }
 
-   console.log(this.props.tabObject);
       return (        
          <div>
             {localDataList}

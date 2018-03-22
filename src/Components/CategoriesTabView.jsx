@@ -1,6 +1,6 @@
 import React from 'react';
 import TabItem from './TabItem.jsx';
-import SubCategoryView from './SubCategoryView.jsx';
+import Filter from './Filter.jsx';
 
 class CategoriesTabView extends React.Component {
 
@@ -10,7 +10,8 @@ class CategoriesTabView extends React.Component {
           username: '',
           tabList: [],
           tabObjectData: [],
-          displaySubCategoryView: false
+          displaySubCategoryView: false,
+          filteredData: []
         }
       }
 
@@ -86,9 +87,23 @@ class CategoriesTabView extends React.Component {
       handleTabClick = (tabObj) => {
             this.setState({
                 tabObjectData: tabObj,
-                displaySubCategoryView: true
+                displaySubCategoryView: true,
+                filteredData: tabObj
             });
       }
+
+      handleClick = (key, value) =>{
+        let larray = [];
+
+        for(var i=0; i<this.state.tabObjectData.length; i++){
+            if(this.state.tabObjectData[i][key] === value){
+                larray.push(this.state.tabObjectData[i]);
+            }
+        }
+        this.setState({
+            filteredData: larray
+        });
+      } 
 
    render() {
        let localTabList;
@@ -109,8 +124,9 @@ class CategoriesTabView extends React.Component {
                     {localTabList}  
                 </div>
                 <br/>
+                <br/>
                 <div>
-                    {this.state.displaySubCategoryView ? <SubCategoryView tabObject={this.state.tabObjectData} /> : null}
+                    {this.state.displaySubCategoryView ? <Filter tabObject={this.state.tabObjectData} filteredData={this.state.filteredData} ontabclick={this.handleClick}/> : null}
                 </div>
             </div>
         );
